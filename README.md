@@ -8,7 +8,9 @@
 3. Go back to Windows
 4. In the start menu search for "Powershell" and open "Windows Powershell"
 5. Then copy the following code and paste it in the Powershell window
-```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/genshin-wishes/genshin-wishes-getlink/main/global.ps1'));```
+```jsx
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/genshin-wishes/genshin-wishes-getlink/main/global.ps1'));
+```
 6. Hit ENTER then a link will be copied to your clipboard
 7. Paste the link on genshin-wishes.com to synchronise your wishes
 
@@ -18,6 +20,8 @@
 3. Go back to Windows
 4. In the start menu search for "Powershell" and open "Windows Powershell"
 5. Then copy the following code and paste it in the Powershell window
-```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/genshin-wishes/genshin-wishes-getlink/main/mainland-china.ps1'));```
+```jsx
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/genshin-wishes/genshin-wishes-getlink/main/mainland-china.ps1'));
+```
 6. Hit ENTER then a link will be copied to your clipboard
 7. Paste the link on genshin-wishes.com to synchronise your wishes
