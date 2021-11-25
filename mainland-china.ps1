@@ -15,6 +15,7 @@ if (-Not $match) {
     exit
 }
 [string] $wishHistoryUrl = $match -replace 'OnGetWebViewPageFinish:', ''
-Write-Host $wishHistoryUrl
-Set-Clipboard -Value $wishHistoryUrl
+$friendlyUrl = $wishHistoryUrl.Split(" ")
+Write-Host $friendlyUrl[0]
+Set-Clipboard -Value $friendlyUrl[0]
 Write-Host "Link copied to clipboard, paste it on Genshin Wishes" -ForegroundColor Green
