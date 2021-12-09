@@ -14,7 +14,7 @@ if (-Not $match) {
     Write-Host "We cannot find the wish history url! Make sure to open the wish history ingame first!" -ForegroundColor Red
     return
 }
-[string] $wishHistoryUrl = $match -replace 'OnGetWebViewPageFinish:', ''
+[string] $wishHistoryUrl = $match[$match.count-1] -replace 'OnGetWebViewPageFinish:', ''
 $friendlyUrl = $wishHistoryUrl.Split(" ")
 Write-Host $friendlyUrl[0]
 Set-Clipboard -Value $friendlyUrl[0]
