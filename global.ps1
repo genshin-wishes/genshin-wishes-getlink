@@ -3,8 +3,10 @@ $LogLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x539f)$([cha
 $path = [System.Environment]::ExpandEnvironmentVariables($logLocation);
 if ([System.IO.File]::Exists($path)) {
     $pathChina = [System.Environment]::ExpandEnvironmentVariables($LogLocationChina);
+    $lastChange = (Get-ItemProperty -Path $pathChina -Name LastWriteTime).lastwritetime
+    $lastChangeChina = (Get-ItemProperty -Path $path -Name LastWriteTime).lastwritetime
     if ([System.IO.File]::Exists($pathChina)) {
-        if(((Get-ItemProperty -Path $pathChina -Name LastWriteTime).lastwritetime - (Get-ItemProperty -Path $path -Name LastWriteTime).lastwritetime) -gt 0) {
+        if(($lastChange - $lastChangeChina) -gt 0) {
             $path = $pathChina
         }
     }
