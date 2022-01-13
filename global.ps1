@@ -1,7 +1,14 @@
 ﻿$logLocation = "%userprofile%\AppData\LocalLow\miHoYo\Genshin Impact\output_log.txt";
 $LogLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x539f)$([char]0x795e)\output_log.txt";
 $path = [System.Environment]::ExpandEnvironmentVariables($logLocation);
-if (-Not [System.IO.File]::Exists($path)) {
+if ([System.IO.File]::Exists($path)) {
+    $pathChina = [System.Environment]::ExpandEnvironmentVariables($LogLocationChina);
+    if ([System.IO.File]::Exists($pathChina)) {
+        if(((Get-ItemProperty -Path $pathChina -Name LastWriteTime).lastwritetime - (Get-ItemProperty -Path $path -Name LastWriteTime).lastwritetime) -gt 0) {
+            $path = $pathChina
+        }
+    }
+} else {
     $path = [System.Environment]::ExpandEnvironmentVariables($LogLocationChina);
     if (-Not [System.IO.File]::Exists($path)) {
         Write-Host "We cannot find the log file! Make sure to open the wish history ingame first!" -ForegroundColor Red
